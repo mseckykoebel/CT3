@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      charset="utf-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>CT3</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- REFRESH FUNCTION -->
+    <script>
+      function refresh() {
+        window.location.reload(true);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="page left">
+      <div class="page-number">1.</div>
+      <div class="page-content">
+        <!-- Slugline and action set the stage -->
+        <div class="slugline">Evanston Firehouse</div>
+        <div class="action">
+          The fire truck pulls in, lights flashing silently. An air of defeat
+          hangs over the firefighters. {{name_data.agent_1_name}} and
+          {{name_data.agent_2_name}} enter, still arguing about what pet they
+          think is the best.
+        </div>
+        <!-- Character and dialogue go back and fourth like this -->
+        <ol>
+          {% for i in range(data_length) %}
+          <!-- agent one -->
+          <div class="character">{{name_data.agent_1_name}}</div>
+          <div class="dialog">{{data[i][0]}}. {{data[i][1]}}</div>
+          <!-- agent two -->
+          <div class="character">{{name_data.agent_2_name}}</div>
+          <div class="dialog">{{data[i][2]}}. {{data[i][3]}}</div>
+          {% endfor %}
+        </ol>
+        <!-- Parenthetical (if we need it) ( to him/herself )</div> -->
+        <div class="slugline">
+          Ext. {{name_data.agent_1_name}} and {{name_data.agent_2_name}}, still
+          arguing in the distance. The onlookers return to their stations.
+        </div>
+      </div>
+    </div>
+    <div class="page right">
+      <div class="landing-content">
+        <h1 class="slugline-introducing">Comedy Tonight Script Generator</h1>
+        <p class="description-paragraph" style="font-family: Inter !important">
+          Developed by Mason Secky-Koebel, Daniel Petikian, Sidharth Runwal,
+          David Marquette, and Vedant Ambani
+        </p>
+        <div style="display: inline">
+          <form>
+            <button
+              onclick="refresh()"
+              class="button"
+              type="submit"
+              style="font-family: Inter !important"
+            >
+              Reset
+            </button>
+          </form>
+          <!-- Handle reset button onclick event 
+          <button class="button">Generate</button>
+          <button class="button">Reset</button>
+          -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
